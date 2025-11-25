@@ -1,0 +1,50 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Lab 4 - Instancia Ubuntu 20 (Corregido a t3.micro)
+
+Parameters:
+  KeyName:
+    Description: Nombre de tu par de claves (Key Pair) existente en AWS
+    Type: AWS::EC2::KeyPair::KeyName
+    ConstraintDescription: debe ser el nombre de un Key Pair existente.
+  
+  LatestAmiId:
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/canonical/ubuntu/server/20.04/stable/current/amd64/hvm/ebs-gp2/ami-id'
+
+Resources:
+  MySecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Permitir SSH y Puerto 3000
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 3000
+          ToPort: 3000
+          CidrIp: 0.0.0.0/0
+
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref LatestAmiId
+      # CAMBIO REALIZADO AQUI: t3.micro es más compatible en Ohio
+      InstanceType: t3.micro
+      KeyName: !Ref KeyName
+      SecurityGroups:
+        - !Ref MySecurityGroup
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          apt-get update
+          apt-get install -y docker.io docker-compose
+          systemctl start docker
+          systemctl enable docker
+          usermod -aG docker ubuntu
+
+Outputs:
+  PublicIP:
+    Description: IP Publica de la instancia
+    Value: !GetAtt MyInstance.PublicIp
