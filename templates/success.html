@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Autenticación Exitosa{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center align-items-center min-vh-70">
+    <div class="col-md-6">
+      <div class="auth-card text-center">
+        <div class="success-animation mb-4">
+          <i class="fas fa-check-circle fa-6x text-success pulse"></i>
+        </div>
+        <h2 class="text-success mb-3">¡ÉXITO!</h2>
+        <h5 class="mb-4">Autenticación de 2 Pasos Correcta</h5>
+        
+        <div class="success-message p-4 mb-4">
+          <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+          <p class="lead">Tu identidad ha sido verificada correctamente</p>
+          <p class="text-muted">Ahora tienes acceso completo al sistema</p>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-6 mb-2">
+            <div class="feature-box">
+              <i class="fas fa-lock text-success"></i>
+              <small>Sesión Segura</small>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="feature-box">
+              <i class="fas fa-check-double text-success"></i>
+              <small>2FA Verificado</small>
+            </div>
+          </div>
+        </div>
+        
+        <a href="/" class="btn btn-primary btn-lg">
+          <i class="fas fa-home me-2"></i>Ir al Inicio
+        </a>
+        <a href="/logout" class="btn btn-outline-secondary btn-lg ms-2">
+          <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

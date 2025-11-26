@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}Verificar 2FA{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center align-items-center min-vh-70">
+    <div class="col-md-5">
+      <div class="auth-card">
+        <div class="card-icon mb-4 text-center">
+          <i class="fas fa-mobile-alt fa-4x"></i>
+        </div>
+        <h3 class="text-center mb-3">Verificación de 2 Pasos</h3>
+        
+        {% if user_email %}
+          <div class="alert alert-info mb-4">
+            <i class="fas fa-envelope me-2"></i>
+            Hemos enviado un código de 6 dígitos a <strong>{{ user_email }}</strong>
+          </div>
+        {% endif %}
+        
+        <p class="text-center text-muted mb-4">Ingresa el código recibido por correo o el de Google Authenticator</p>
+        
+        {% if error %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-circle me-2"></i>{{ error }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        {% endif %}
+        
+        <form method="post" class="needs-validation" novalidate>
+          <div class="mb-4">
+            <label class="form-label text-center d-block">
+              <i class="fas fa-key me-2"></i>Código de Autenticación
+            </label>
+            <input class="form-control form-control-lg text-center token-input" 
+                   type="text" 
+                   name="token" 
+                   required 
+                   maxlength="6"
+                   pattern="[0-9]{6}"
+                   placeholder="000000"
+                   autocomplete="off">
+            <div class="invalid-feedback text-center">Ingresa un código de 6 dígitos.</div>
+          </div>
+          
+          <button class="btn btn-primary btn-lg w-100">
+            <i class="fas fa-check me-2"></i>Verificar Código
+          </button>
+        </form>
+
+        <div class="alert alert-info mt-4">
+          <i class="fas fa-info-circle me-2"></i>
+          <small><strong>Opciones de verificación:</strong></small><br>
+          <small>• Código enviado a tu email (válido 10 min)</small><br>
+          <small>• Código de Google Authenticator (cambia cada 30 seg)</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Form validation
+(function() {
+  'use strict';
+  var forms = document.querySelectorAll('.needs-validation');
+  Array.prototype.slice.call(forms).forEach(function(form) {
+    form.addEventListener('submit', function(event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
+
+// Auto-format token input
+document.querySelector('.token-input').addEventListener('input', function(e) {
+  this.value = this.value.replace(/[^0-9]/g, '');
+});
+</script>
+{% endblock %}

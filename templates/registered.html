@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Registro Exitoso{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center align-items-center min-vh-70">
+    <div class="col-md-7">
+      <div class="auth-card text-center">
+        <div class="success-icon mb-4">
+          <i class="fas fa-check-circle fa-5x text-success"></i>
+        </div>
+        <h3 class="mb-3">¡Registro Exitoso!</h3>
+        <p class="lead mb-4">Usuario <strong>{{ username }}</strong> creado correctamente</p>
+        
+        <div class="qr-section p-4 mb-4">
+          <h5 class="mb-3"><i class="fas fa-qrcode me-2"></i>Escanea el código QR</h5>
+          <p class="text-muted mb-3">Usa Google Authenticator o cualquier app compatible con TOTP</p>
+          <div class="qr-container">
+            <img src="{{ qr }}" alt="QR code" class="img-fluid qr-image">
+          </div>
+        </div>
+
+        <div class="alert alert-info">
+          <i class="fas fa-info-circle me-2"></i>
+          <strong>Importante:</strong> Guarda este código QR. Lo necesitarás para iniciar sesión.
+        </div>
+
+        <div class="steps-guide mb-4">
+          <h6 class="mb-3">Pasos siguientes:</h6>
+          <ol class="text-start">
+            <li><strong>Opción 1 - Google Authenticator:</strong>
+              <ul>
+                <li>Abre Google Authenticator en tu móvil</li>
+                <li>Escanea el código QR mostrado arriba</li>
+              </ul>
+            </li>
+            <li><strong>Opción 2 - Código por Email:</strong>
+              <ul>
+                <li>Al iniciar sesión recibirás un código en tu correo</li>
+              </ul>
+            </li>
+            <li>Regresa e inicia sesión con tu usuario y contraseña</li>
+            <li>Ingresa el código recibido por email o el generado por la app</li>
+          </ol>
+        </div>
+        
+        <a href="/login" class="btn btn-success btn-lg">
+          <i class="fas fa-sign-in-alt me-2"></i>Ir a Iniciar Sesión
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

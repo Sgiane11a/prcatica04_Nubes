@@ -24,17 +24,17 @@ app.secret_key = 'supersecreto'
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME', 'steyci.cordova@tecsup.edu.pe')
-app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD', 'zgtj udri mimm gzbe')
-app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER', 'steyci.cordova@tecsup.edu.pe')
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME', 'TU_CORREO@gmail.com')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD', 'xxxx xxxx xxxx xxxx')
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER', 'TU_CORREO@gmail.com')
 
 mail = Mail(app)
 
 # CONFIGURACIÓN DE BASE DE DATOS (AWS RDS PostgreSQL)
 # Usa variables de entorno si existen (.env local), sino usa valores por defecto
 db_user = os.getenv('DB_USER', 'postgres')
-db_pass = os.getenv('DB_PASSWORD', 'aL388TEC2955')
-db_host = os.getenv('DB_HOST', 'lab-bd.c9kyyo2w0xe5.us-east-2.rds.amazonaws.com')
+db_pass = os.getenv('DB_PASSWORD', 'TU_PASSWORD_DB')
+db_host = os.getenv('DB_HOST', 'tu-endpoint.rds.amazonaws.com')
 db_name = os.getenv('DB_NAME', 'postgres')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{db_user}:{db_pass}@{db_host}:5432/{db_name}'

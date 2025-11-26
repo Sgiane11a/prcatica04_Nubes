@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Iniciar Sesión - TecsupLab 2FA{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center align-items-center min-vh-70">
+    <div class="col-md-5">
+      <div class="auth-card">
+        <div class="card-icon mb-4 text-center">
+          <i class="fas fa-sign-in-alt fa-4x"></i>
+        </div>
+        <h3 class="text-center mb-4">Iniciar Sesión</h3>
+        
+        {% if error %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-circle me-2"></i>{{ error }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        {% endif %}
+        
+        <form action="/login" method="post" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label class="form-label"><i class="fas fa-user me-2"></i>Usuario</label>
+            <input class="form-control form-control-lg" type="text" name="username" required 
+                   placeholder="Tu nombre de usuario">
+            <div class="invalid-feedback">Por favor ingresa tu usuario.</div>
+          </div>
+          
+          <div class="mb-4">
+            <label class="form-label"><i class="fas fa-lock me-2"></i>Contraseña</label>
+            <input class="form-control form-control-lg" type="password" name="password" required
+                   placeholder="Tu contraseña">
+            <div class="invalid-feedback">Por favor ingresa tu contraseña.</div>
+          </div>
+          
+          <button class="btn btn-success btn-lg w-100 mb-3" type="submit">
+            <i class="fas fa-arrow-right me-2"></i>Entrar
+          </button>
+          
+          <div class="text-center">
+            <p class="mb-0">¿No tienes cuenta? <a href="/register" class="text-decoration-none">Regístrate aquí</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Form validation
+(function() {
+  'use strict';
+  var forms = document.querySelectorAll('.needs-validation');
+  Array.prototype.slice.call(forms).forEach(function(form) {
+    form.addEventListener('submit', function(event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
+</script>
+{% endblock %}

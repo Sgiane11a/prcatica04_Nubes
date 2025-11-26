@@ -1,5 +1,8 @@
 flask
 flask_sqlalchemy
+flask-mail
 psycopg2-binary
 pyotp
 qrcode
+pillow
+python-dotenv

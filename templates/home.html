@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio - TecsupLab 2FA{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center align-items-center min-vh-70">
+    <div class="col-md-8 text-center">
+      <div class="hero-section">
+        <div class="hero-icon mb-4">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h1 class="display-4 fw-bold mb-3">Sistema de Autenticación 2FA</h1>
+        <p class="lead mb-4">Protege tu cuenta con autenticación de dos factores utilizando Google Authenticator</p>
+        
+        <div class="row mt-5">
+          <div class="col-md-6 mb-3">
+            <div class="card card-hover h-100">
+              <div class="card-body text-center p-4">
+                <div class="feature-icon mb-3">
+                  <i class="fas fa-user-plus fa-3x text-primary"></i>
+                </div>
+                <h5 class="card-title">Nuevo Usuario</h5>
+                <p class="card-text">Crea una cuenta segura con autenticación de dos pasos</p>
+                <a href="/register" class="btn btn-primary btn-lg">
+                  <i class="fas fa-arrow-right me-2"></i>Registrarse
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 mb-3">
+            <div class="card card-hover h-100">
+              <div class="card-body text-center p-4">
+                <div class="feature-icon mb-3">
+                  <i class="fas fa-sign-in-alt fa-3x text-success"></i>
+                </div>
+                <h5 class="card-title">Ya Tengo Cuenta</h5>
+                <p class="card-text">Accede a tu cuenta de forma segura</p>
+                <a href="/login" class="btn btn-success btn-lg">
+                  <i class="fas fa-arrow-right me-2"></i>Iniciar Sesión
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="features-list mt-5">
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <div class="feature-item">
+                <i class="fas fa-lock fa-2x mb-2 text-warning"></i>
+                <h6>Seguridad Avanzada</h6>
+                <small class="text-muted">Autenticación de dos factores</small>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="feature-item">
+                <i class="fas fa-database fa-2x mb-2 text-info"></i>
+                <h6>Base de Datos RDS</h6>
+                <small class="text-muted">PostgreSQL en AWS</small>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="feature-item">
+                <i class="fas fa-mobile-alt fa-2x mb-2 text-danger"></i>
+                <h6>Google Authenticator</h6>
+                <small class="text-muted">Compatible con apps 2FA</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
