@@ -217,49 +217,19 @@ Configura:
 ## 🔐 Seguridad
 
 - ✅ Autenticación de dos factores obligatoria
-- ✅ Contraseñas almacenadas (⚠️ **Nota:** En producción usar hashing como bcrypt)
 - ✅ Secretos TOTP únicos por usuario
 - ✅ Sesiones seguras con Flask sessions
 - ✅ Base de datos en AWS RDS con acceso controlado
 
 ---
 
-## 📸 Capturas de Pantalla
-
-*(Incluir capturas de pantalla de cada paso del proyecto)*
-
-1. Página principal
-2. Registro de usuario
-3. Código QR generado
-4. Inicio de sesión
-5. Verificación 2FA
-6. Página de éxito
-7. Instancia EC2 en AWS
-8. Base de datos RDS
-9. Docker corriendo
-10. Logs de la aplicación
-
----
-
 ## 🎥 Video Demostración
 
-**Link del video:** [Insertar link de YouTube o Google Drive]
-**Link del video en YouTube:** [[Insertar link de YouTube o Google Drive]](https://youtu.be/F-ooty8oy5o)
+**Link del video:** [[Video en Drive]](https://drive.google.com/file/d/15DG46iqP6_hoUUx5GL9BgPxBzDAw7tiR/view?usp=sharing)
+**Link del video en YouTube:** [[Video en YouTube]](https://youtu.be/F-ooty8oy5o)
 
 
 *(Video de máximo 5 minutos mostrando todo el funcionamiento)*
-
----
-
-## 📝 Entregables
-
-- ✅ Código fuente en GitHub
-- ✅ Dockerfile
-- ✅ docker-compose.yml
-- ✅ infraestructura.yaml (CloudFormation)
-- ✅ README.md con instrucciones completas
-- ✅ Capturas de pantalla
-- ✅ Video demostración
 
 ---
 
@@ -269,8 +239,3 @@ Configura:
 Tecsup - Soluciones en la Nube  
 Sección A - 2025
 
----
-
-## 📄 Licencia
-
-Este proyecto es parte de una práctica académica de Tecsup.
